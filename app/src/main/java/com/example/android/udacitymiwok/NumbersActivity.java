@@ -37,6 +37,38 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("eight");
         words.add("nine");
         words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
+        words.add("ten");
 
         // array adapter will require type of item to be converted to View, in this case is a String
         // the layout of the items are set as the xml we have chosen
