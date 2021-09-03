@@ -1,18 +1,12 @@
 package com.example.android.udacitymiwok;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.provider.UserDictionary;
 import android.widget.ArrayAdapter;
-import android.widget.GridView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
@@ -26,57 +20,31 @@ public class NumbersActivity extends AppCompatActivity {
         String TAG = this.getClass().getSimpleName();
 
         // init array list
-        ArrayList<String> words = new ArrayList<String>();
-        words.add("one");
-        words.add("two");
-        words.add("three");
-        words.add("four");
-        words.add("five");
-        words.add("six");
-        words.add("seven");
-        words.add("eight");
-        words.add("nine");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
-        words.add("ten");
+        ArrayList<Word> words = new ArrayList<>();
 
-        // array adapter will require type of item to be converted to View, in this case is a String
-        // the layout of the items are set as the xml we have chosen
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
+        words.add(new Word("one", "lutti"));
+        words.add(new Word("two", "otiiko"));
+        words.add(new Word("three", "tolookosu"));
+        words.add(new Word("four", "oyyisa"));
+        words.add(new Word("five", "massokka"));
+        words.add(new Word("six", "temmokka"));
+        words.add(new Word("seven", "kenekaku"));
+        words.add(new Word("eight", "kawinta"));
+        words.add(new Word("nine", "wo'e"));
+        words.add(new Word("ten", "na' aacha"));
 
-        GridView listView = findViewById(R.id.list);
+        // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
+        // adapter knows how to create list items for each item in the list.
+        WordAdapter adapter = new WordAdapter(this, words);
 
-        listView.setAdapter(itemsAdapter);
+        // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
+        // There should be a {@link ListView} with the view ID called list, which is declared in the
+        // activity_numbers.xml layout file.
+        ListView listView = (ListView) findViewById(R.id.list);
+
+        // Make the {@link ListView} use the {@link WordAdapter} we created above, so that the
+        // {@link ListView} will display list items for each {@link Word} in the list.
+        listView.setAdapter(adapter);
 
     }
 }
