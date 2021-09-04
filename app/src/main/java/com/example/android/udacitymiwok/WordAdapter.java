@@ -1,6 +1,7 @@
 package com.example.android.udacitymiwok;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,15 @@ public class WordAdapter extends ArrayAdapter<Word> {
     }
 
     // override getView to let ListView use the custom list item defined in list_item.xml
+
+    /**
+     * Provides a view for an Adapter View (ListView, GridView, etc.)
+     *
+     * @param position    The AdapterView position that is requesting a view
+     * @param convertView The recycled view to populate
+     * @param parent      The parent ViewGroup that is used for inflation
+     * @return The View for the position in the AdapterView (in this case is the ListView)
+     */
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -30,7 +40,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
                     R.layout.list_item, parent, false);
         }
 
-        // get the Word object in the adapter with the correct position
+        // get the Word object in the adapter with the requested position
         Word currentWord = getItem(position);
 
         // bind TextView var to ui
