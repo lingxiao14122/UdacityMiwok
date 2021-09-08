@@ -13,20 +13,22 @@
         android:background="@color/tan_background"
         android:src="@mipmap/ic_launcher" />
 
+
     <LinearLayout
         android:id="@+id/text_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingLeft="16dp">
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
 
         <TextView
             android:id="@+id/tv_miwok_word"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/light"
             android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/light"
             android:textSize="18sp"
             android:textStyle="bold"
             tools:text="Lutti" />

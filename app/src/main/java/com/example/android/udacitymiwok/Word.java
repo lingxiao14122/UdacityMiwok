@@ -3,9 +3,12 @@ package com.example.android.udacitymiwok;
 public class Word {
 
     // member variable
-    private String mDefaultTranslation;
-    private String mMiwokTranslation;
-    private int mImageResID = -1;
+    private final String mDefaultTranslation;
+    private final String mMiwokTranslation;
+    private int mImageResId = -1;
+
+
+    private final int mAudioResId;
 
     private static final int NO_IMAGE_PROVIDED = -1;
 
@@ -14,10 +17,12 @@ public class Word {
      *
      * @param defaultTranslation default translation of a word, such as english
      * @param miwokTranslation miwok translation of a word
+     * @param audioResId resource id of audio
      * */
-    public Word(String defaultTranslation, String miwokTranslation) {
+    public Word(String defaultTranslation, String miwokTranslation, int audioResId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mAudioResId = audioResId;
     }
 
     /**
@@ -25,12 +30,14 @@ public class Word {
      *
      * @param defaultTranslation default translation of a word, such as english
      * @param miwokTranslation miwok translation of a word
-     * @param imageResID drawable resource ID for the image asset
+     * @param imageResId drawable resource ID for the image asset
+     * @param audioResId resource id of audio
      */
-    public Word(String defaultTranslation, String miwokTranslation, int imageResID) {
+    public Word(String defaultTranslation, String miwokTranslation, int imageResId, int audioResId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
-        mImageResID = imageResID;
+        mImageResId = imageResId;
+        mAudioResId = audioResId;
     }
 
     /**
@@ -53,12 +60,24 @@ public class Word {
      *
      * @return resource id for the word image
      */
-    public int getImageResID() {
-        return mImageResID;
+    public int getImageResId() {
+        return mImageResId;
     }
 
+    /**
+     *
+     * @return if word object has image
+     */
     public boolean hasImage() {
         // return if mImageResID not equal to NO_IMAGE_PROVIDED
-        return mImageResID != NO_IMAGE_PROVIDED;
+        return mImageResId != NO_IMAGE_PROVIDED;
+    }
+
+    /**
+     *
+     * @return resource id of audio
+     */
+    public int getAudioResId() {
+        return mAudioResId;
     }
 }
