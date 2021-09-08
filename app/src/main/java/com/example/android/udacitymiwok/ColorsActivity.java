@@ -47,7 +47,7 @@ public class ColorsActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Word wordAtPosition = (Word) parent.getItemAtPosition(position);
+                Word wordAtPosition = words.get(position);
                 int audioResId = wordAtPosition.getAudioResId();
                 mMediaPlayer = MediaPlayer.create(ColorsActivity.this, audioResId);
                 mMediaPlayer.start();
