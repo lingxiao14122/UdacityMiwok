@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list_item_root"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:minHeight="@dimen/list_item_height"
-    android:orientation="horizontal">
+    android:layout_height="88dp"
+    android:orientation="horizontal"
+    tools:background="@color/category_numbers">
 
     <ImageView
         android:id="@+id/iv_word_image"
@@ -17,16 +19,20 @@
     <LinearLayout
         android:id="@+id/text_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
+        android:layout_height="@dimen/list_item_height"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/iv_word_image"
         android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:paddingStart="16dp">
 
         <TextView
             android:id="@+id/tv_miwok_word"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="bottom"
             android:textAppearance="?android:textAppearanceMedium"
             android:textColor="@color/light"
             android:textSize="18sp"
@@ -37,9 +43,21 @@
             android:id="@+id/tv_default_word"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="top"
             android:textColor="@color/light"
+            app:layout_constraintTop_toBottomOf="@+id/tv_miwok_word"
             tools:text="one" />
 
     </LinearLayout>
 
-</LinearLayout>
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_baseline_play_arrow_24" />
+
+
+</RelativeLayout>
