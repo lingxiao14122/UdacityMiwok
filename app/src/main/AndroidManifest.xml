@@ -28,7 +28,7 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".FamilyMembersActivity"
+            android:name=".FamilyActivity"
             android:exported="true"
             android:label="@string/category_family"
             android:parentActivityName=".MainActivity">
