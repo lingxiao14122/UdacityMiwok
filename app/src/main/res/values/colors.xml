@@ -34,6 +34,9 @@
     <!-- Background color for the phrases category -->
     <color name="category_phrases">#16AFCA</color>
 
+    <!-- Base color for tab layout (not selected therefore faded) -->
+    <color name="textFade">#A8A19E</color>
+
     <!--    original generated color resource-->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>

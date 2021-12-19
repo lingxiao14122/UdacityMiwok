@@ -1,67 +1,78 @@
 package com.example.android.udacitymiwok;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
 
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ViewPager2 mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
 
-        // bind view
-        TextView mTvNumbers = findViewById(R.id.numbers);
-        TextView mTvFamilyMembers = findViewById(R.id.family);
-        TextView mTvColors = findViewById(R.id.colors);
-        TextView mTvPhrases = findViewById(R.id.phrases);
+        // bind
+        mViewPager = findViewById(R.id.pager);
+        TabLayout tabLayout = findViewById(R.id.tab_layout);
 
-        //attach on click listener to view
-        mTvNumbers.setOnClickListener(new View.OnClickListener() {
-            // above in the parameter, we create a new anonymous subclass of View.OnClickListener
-            // and calling its constructor.
-            // then we can implement its method (because it is interface) using { } after constructor.
-            // In summary, we implemented a interface abstract method inside a new object
-            // inside setOnClickListener parameter.
+        // view pager
+        FragmentStateAdapter adapter = new ViewPagerAdapter(this);
+        mViewPager.setAdapter(adapter);
+
+        // tab layout
+        String[] tabText = {"Number", "Family", "Colors", "Phrases"};
+        new TabLayoutMediator(tabLayout, mViewPager, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
-            public void onClick(View view) {
-                // create a new intent to open the {@link NumbersActivity}
-                Intent intent = new Intent(MainActivity.this, NumbersActivity.class);
-                startActivity(intent);
+            public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
+                tab.setText(tabText[position]);
             }
-        });
+        }).attach();
 
-        mTvFamilyMembers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, FamilyActivity.class);
-                startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mViewPager.getCurrentItem() == 0) {
+            super.onBackPressed();
+        } else {
+            mViewPager.setCurrentItem(mViewPager.getCurrentItem() - 1);
+        }
+    }
+
+    private static class ViewPagerAdapter extends FragmentStateAdapter {
+
+        public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
+            super(fragmentActivity);
+        }
+
+        @NonNull
+        @Override
+        public Fragment createFragment(int position) {
+            if (position == 0) {
+                return new NumbersFragment();
+            } else if (position == 1) {
+                return new FamilyFragment();
+            } else if (position == 2) {
+                return new ColorsFragment();
+            } else {
+                return new PhrasesFragment();
             }
-        });
+        }
 
-        mTvColors.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ColorsActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        mTvPhrases.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, PhrasesActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
+        @Override
+        public int getItemCount() {
+            return 4;
+        }
     }
 
 }

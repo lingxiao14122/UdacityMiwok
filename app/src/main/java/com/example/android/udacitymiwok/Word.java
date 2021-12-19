@@ -2,23 +2,20 @@ package com.example.android.udacitymiwok;
 
 public class Word {
 
+    private static final int NO_IMAGE_PROVIDED = -1;
     // member variable
     private final String mDefaultTranslation;
     private final String mMiwokTranslation;
-    private int mImageResId = -1;
-
-
     private final int mAudioResId;
-
-    private static final int NO_IMAGE_PROVIDED = -1;
+    private int mImageResId = -1;
 
     /**
      * Create a new word
      *
      * @param defaultTranslation default translation of a word, such as english
-     * @param miwokTranslation miwok translation of a word
-     * @param audioResId resource id of audio
-     * */
+     * @param miwokTranslation   miwok translation of a word
+     * @param audioResId         resource id of audio
+     */
     public Word(String defaultTranslation, String miwokTranslation, int audioResId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
@@ -29,9 +26,9 @@ public class Word {
      * Create a new Word object
      *
      * @param defaultTranslation default translation of a word, such as english
-     * @param miwokTranslation miwok translation of a word
-     * @param imageResId drawable resource ID for the image asset
-     * @param audioResId resource id of audio
+     * @param miwokTranslation   miwok translation of a word
+     * @param imageResId         drawable resource ID for the image asset
+     * @param audioResId         resource id of audio
      */
     public Word(String defaultTranslation, String miwokTranslation, int imageResId, int audioResId) {
         mDefaultTranslation = defaultTranslation;
@@ -41,7 +38,6 @@ public class Word {
     }
 
     /**
-     *
      * @return String of default translation for word
      */
     public String getDefaultTranslation() {
@@ -49,7 +45,6 @@ public class Word {
     }
 
     /**
-     *
      * @return String of miwok translation for word
      */
     public String getMiwokTranslation() {
@@ -57,7 +52,6 @@ public class Word {
     }
 
     /**
-     *
      * @return resource id for the word image
      */
     public int getImageResId() {
@@ -65,7 +59,6 @@ public class Word {
     }
 
     /**
-     *
      * @return if word object has image
      */
     public boolean hasImage() {

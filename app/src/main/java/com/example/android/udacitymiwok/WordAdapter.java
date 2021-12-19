@@ -19,9 +19,9 @@ import androidx.core.content.ContextCompat;
 
 public class WordAdapter extends ArrayAdapter<Word> {
 
-    private int mColorResourceId;
+    private final int mColorResourceId;
 
-    public WordAdapter(Activity context, ArrayList<Word> words,@ColorRes int category_colors) {
+    public WordAdapter(Activity context, ArrayList<Word> words, @ColorRes int category_colors) {
         super(context, 0, words);
         mColorResourceId = category_colors;
     }
